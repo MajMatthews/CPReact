@@ -1,19 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-
-class TabbedSelector extends React.Component {
+export default class Details extends React.Component {
 	render() {
-		const {post, i} = this.props;
-		if (!post.tab) {
-			return null;
-		}
+		const {doc, i} = this.props;
+		const pathToImage = doc.Graphic;
+		
 		return (
-		    <div className="tabs">
-		    	<p>{post.Title}</p>
+		    <div className="details">
+		    	<h2>{doc.Title}</h2>
+		    	<p>{doc.Content}</p>
+				<img src={require('../images/' + pathToImage)} />
 	      	</div>	
 		)	
 	}
 }
-
-export default TabbedSelector;

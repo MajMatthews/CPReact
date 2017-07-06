@@ -1,17 +1,16 @@
 import React from 'react';
 import TabbedSelector from './TabbedSelector';
+import Navbar from './Navbar';
 import Main from './Main';
-
 // require("./Home.css");
 
-class Home extends React.Component {
+export default class Home extends React.Component {
+	
 	render() {
 		return (
 			<div className="Home">
-				{this.props.posts.map((post, i) => <TabbedSelector {...this.props} key={i} i={i} post={post} />)}
+				{this.props.docs.map((doc, i) => <TabbedSelector {...this.props} key={i} i={i} doc={doc} />)}
 			</div>
 		)	
 	}
 }
-
-export default Home;

@@ -1,17 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router';
-
 // require("./Navbar.css");
 
-class Navbar extends React.Component {
+export default class Navbar extends React.Component {
+render() {
+		const {doc, i} = this.props;
 
-        render() {
-        	return (
-                	<div className="Navbar">
-                        	<p>Navbar</p>
-                	</div>
-        	)	
+		return (
+		    <div className="navbar">
+		    <Link to={`/view/${doc.selector}`}>{doc.Title}</Link>
+	      	</div>	
+		)	
 	}
 }
-
-export default Navbar;

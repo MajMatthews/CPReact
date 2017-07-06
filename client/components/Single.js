@@ -1,21 +1,21 @@
 import React from 'react';
 import Details from './Details';
-
+import Navbar from './Navbar';
 // require('./Single.css');
 
-class Single extends React.Component {
+export default class Single extends React.Component {
 	render() {
-		const { postId } = this.props.params;
+		const { docId } = this.props.params;
 
-	    const i = this.props.posts.findIndex((post) => post.selector === postId);
-	    const post = this.props.posts[i];
-		console.log('details id teller', post, 'index', i);
+	    const i = this.props.docs.findIndex((doc) => doc.selector === docId);
+	    const doc = this.props.docs[i];
 		return (
-			<div className="Single">
-				<Details i={i} post={post} {...this.props} />
+			<div className="single">
+				<div className="menu">
+					{this.props.docs.map((doc, i) => <Navbar {...this.props} key={i} i={i} doc={doc} />)}
+				</div>
+				<Details i={i} doc={doc} {...this.props} />
 			</div>
 		)	
 	}
 }
-
-export default Single;

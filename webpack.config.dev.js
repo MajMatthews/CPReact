@@ -30,6 +30,12 @@ module.exports = {
       include: path.join(__dirname, 'client'),
       loader: 'style-loader!css-loader!stylus-loader'
     },
+    // IMAGES
+    { 
+      test: /\.(png|jpg)$/, 
+      include: path.join(__dirname, 'client'),
+      loader: 'url-loader?limit=8192'
+    },
     ]
   }
 };

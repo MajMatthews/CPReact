@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import posts from './posts';
+import docs from './docs';
 
-const rootReducer = combineReducers({posts, routing: routerReducer });
+const rootReducer = combineReducers({docs, routing: routerReducer });
 
 export default rootReducer;
