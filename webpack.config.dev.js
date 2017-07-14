@@ -1,6 +1,9 @@
 var path = require('path');
 var webpack = require('webpack');
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const reactToolboxVariables = () =>{
+  return []
+}
 module.exports = {
   devtool: 'source-map',
   entry: [
@@ -36,6 +39,19 @@ module.exports = {
       include: path.join(__dirname, 'client'),
       loader: 'url-loader?limit=8192'
     },
+ 
+
+ {
+    test: /\.css|.pcss$/,
+    include: [
+     
+      path.join(__dirname, 'client'),
+      path.join(__dirname, 'node_modules/react-toolbox/lib'),
+    ],
+    loader: "style-loader!css-loader!postcss-loader" }
     ]
-  }
+  },
+  postcss: function () {
+        return [];
+    }
 };

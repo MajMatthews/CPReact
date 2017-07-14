@@ -1,25 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Redirect from './Redirect';
+import Playground from './Playground';
+import Highlights from './Highlights';
+import Detailed from './Detailed';
+
 
 export default class Details extends React.Component {
+
 	render() {
 		const {doc, i} = this.props;
 		const pathToImage = doc.Graphic;
-		let snippet, image;
+		let image, HighlightsLinks, DetailedLinks;
+
 		if (doc.Graphic !== undefined || null) {
-			image =  <img src={require('../images/' + pathToImage)} />
+			image = <img src={require('../images/' + pathToImage)} />
 		};
 
-		if (doc.snippet !== undefined || null) {
-			snippet =  <div className="snippet" dangerouslySetInnerHTML={ {__html: doc.snippet} } />
+		if (doc.Highlights !== undefined || null) {
+			HighlightsLinks = <Highlights doc={doc} {...this.props} />
 		};
-		console.log('snippet', snippet, 'image', image);
+
+		if (doc.Detailed !== undefined || null) {
+			DetailedLinks = <Detailed doc={doc} {...this.props} />
+		};
+
+
 		return (
 		    <div className="details">
 		    	<h2>{doc.Title}</h2>
 		    	<div dangerouslySetInnerHTML={ {__html: doc.Content} } />
-				{snippet}
+				<Playground />
 				{image}
+				{HighlightsLinks}
+				{DetailedLinks}
 	      	</div>	
 		)	
 	}
