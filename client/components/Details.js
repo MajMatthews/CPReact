@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Redirect from './Redirect';
 import Playground from './Playground';
 import Highlights from './Highlights';
 import Detailed from './Detailed';
@@ -31,9 +30,9 @@ export default class Details extends React.Component {
 		    	<h2>{doc.Title}</h2>
 		    	<div dangerouslySetInnerHTML={ {__html: doc.Content} } />
 				<Playground />
-				{image}
 				{HighlightsLinks}
 				{DetailedLinks}
+				{image}
 	      	</div>	
 		)	
 	}

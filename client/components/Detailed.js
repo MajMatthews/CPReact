@@ -44,7 +44,7 @@ export default class Detailed extends React.Component {
 				<Link to="https://libraries.io/npm/webpack/2.3.1" target="_blank">webpack: ^2.3.1</Link><br/>
 				<Link to="https://www.npmjs.com/package/@cjcaj/webpack-bundle-analyzer" target="_blank">webpack-bundle-analyzer: ^2.3.1</Link><br/>
 				<Link to="https://www.npmjs.com/package/webpack-dev-server" target="_blank">webpack-dev-server: 2</Link><br/>
-
+				<br/>
 				<h3>dependencies</h3>
 				<Link to="https://libraries.io/npm/array.prototype.find" target="_blank">array.prototype.find: ^2.0.4</Link><br/>
 				<Link to="https://www.npmjs.com/package/file-loader" target="_blank">file-loader: ^0.11.1</Link><br/>

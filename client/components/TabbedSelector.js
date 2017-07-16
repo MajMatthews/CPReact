@@ -8,8 +8,8 @@ export default class TabbedSelector extends React.Component {
 			return null;
 		}
 		return (
-		    <div className="tabs">
-		    <Link to={`/view/${doc.selector}`}>{doc.tab}</Link>
+		    <div className="intro">
+		    <p>{doc.introContent}</p>
 	      	</div>	
 		)	
 	}

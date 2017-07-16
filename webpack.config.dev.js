@@ -11,32 +11,32 @@ module.exports = {
     './client/cp-guideapp'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve  (__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
-    loaders: [
+    rules: [
     // js
     {
       test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, 'client')
+      loaders: ['babel-loader'],
+      include: path.resolve  (__dirname, 'client')
     },
     // CSS
     { 
       test: /\.styl$/, 
-      include: path.join(__dirname, 'client'),
+      include: path.resolve  (__dirname, 'client'),
       loader: 'style-loader!css-loader!stylus-loader'
     },
     // IMAGES
     { 
       test: /\.(png|jpg)$/, 
-      include: path.join(__dirname, 'client'),
+      include: path.resolve  (__dirname, 'client'),
       loader: 'url-loader?limit=8192'
     },
  
@@ -45,13 +45,10 @@ module.exports = {
     test: /\.css|.pcss$/,
     include: [
      
-      path.join(__dirname, 'client'),
-      path.join(__dirname, 'node_modules/react-toolbox/lib'),
+      path.resolve  (__dirname, 'client'),
+      // path.resolve  (__dirname, 'node_modules/react-toolbox/lib'),
     ],
     loader: "style-loader!css-loader!postcss-loader" }
     ]
   },
-  postcss: function () {
-        return [];
-    }
 };
